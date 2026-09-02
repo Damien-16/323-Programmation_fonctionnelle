@@ -49,33 +49,33 @@ On n'est pas arrivé au bout de l'exercice, on reprendra ça la semaine prochain
 La mission du jour était: finaliser l'analyse fonctionnelle et la planification initiale. Idéalement, il aurait dû être possible de faire la livraison de vendredi dès aujourd'hui en fin de matinée.
 
 J'ai passé vers à peu près tout le monde. Le constat est que la rédaction de User Stories n'est pas encore maîtrisée, personne n'ayant pu me montrer une user story bien formulée du premier coup.  
-Je tiens à ce que le codage ne commence que à partir du moment où au moins une US est bien formulée. Je préfère avoir peu de US de bonne qualité que beaucoup de US de mauvaise qualité. Conséquence:
+Je tiens à ce que le codage ne commence qu'à partir du moment où au moins une US est bien formulée. Je préfère avoir un petit nombre de US de bonne qualité que beaucoup de US de mauvaise qualité. Conséquence:
 
 > Pour la livraison du 4 septembre, je ne damande pas une analyse fonctionnelle complète. Je n'attends que une ou deux US totalisant au minimum 5 bons tests d'acceptance 
 
-N'ayant reçu aucune livraison, j'en déduis que tout le monde a encore du travail à fournir pour arriver à ce stade.
+N'ayant reçu aucune livraison pour l'instant (mardi), j'en déduis que tout le monde a encore du travail à fournir pour arriver à ce stade.
 
-### Mercredi (plan)
+### Mercredi
 
-On commencera avec le checkpoint #1.
+On a fait le checkpoint #1. Les résultats sont ... moyens. En même temps, très peu étaient ceux qui avaient révisé.
 
-On va faire un Sync Fork, parce que j'ai mis à jour des supports.  
-
-On va voir ensemble la solution du début de l'étape 1 de l'application ESportApp, dans laquelle on sépare clairement les aspects métiers et les "logistique":
+On a vu ensemble la solution du début de l'étape 1 de l'application ESportApp, dans laquelle on sépare clairement les aspects métiers et les "logistique":
 - Le projet `ESportApp` contient des classes propres au domaine (métier): `CS2Match`, `LolMatch`, `ValorantMatch`)
 - Le projet `Dataseries` contient les moyens de gérer des séries de `<un_certain_type>`
 
-On va commencer par voir qu'avec C#, on peut aussi **stocker une fonction dans une variable** .
+On a vu qu'avec C#, on peut aussi **stocker une fonction dans une variable** .
 
-Et si on peut mettre une fonction dans une variable, cela veut dire qu'on peut également **donner une fonction comme argument à une autre fonction**. Du coup, cette dernière est ce qu'on appelle une [fonction d'ordre supérieur](./supports/source/02a-fonctions-sup.md)
+Et on a vu comment **donner une fonction comme argument à une autre fonction**. on a vu la théorie des [fonctions d'ordre supérieur](./supports/source/02a-fonctions-sup.md)
 
-On se prendra une pause à ce moment
+On s'est attaqué à l'étape 1 de l'[exercice 2](./exos/fil-rouge/esport/02-recrues-generation/README.md) du fil rouge, dans laquelle on importe les données à partir de fichiers CSV en s'appuyant sur des fonctions spécialisées pour parser les données.
 
-On va mettre en pratique avec l'étape 1 de l'[exercice 2](./exos/fil-rouge/esport/02-recrues-generation/README.md) du fil rouge, dans laquelle on importe les données à partir de fichiers CSV en s'appuyant sur des fonctions spécialisées pour parser les données.
+C'est dur de passer de la théorie au code. Je mets [ma solution](./exos/fil-rouge/esport/ESportApp/) à disposition comme aide/tuteur.
 
-Une fois que notre application sera capable de lire les fichiers, nous allons commencer à jouer avec nos statistiques grâce aux premières méthodes LinQ de la [cheatsheet](./supports/linq-cheatsheet.pdf).
+On a expliqué rapidement les concepts de lazy/eager loading et classes d'extension.
 
-S'il nous reste du temps et de l'énergie, nous allons ajouter un traitement des arguments à notre application: choisir entre des données hardcodées ou en provenance de fichiers.
+On a commencé à jouer avec nos statistiques grâce aux premières méthodes LinQ de la [cheatsheet](./supports/linq-cheatsheet.pdf): combien de victoires ? A quand remonte la dernière défaite de Léa ? Quelles sont les stats du troisième match de Dylan ? ...
+
+Les dernières minutes se passent "en roue libre". J'ai l'impression qu'il y a saturation.
 
 <hr>
 
@@ -87,3 +87,7 @@ Objectif: pouvoir commencer la réalisation
 Prérequis:
 - Avoir au moins une US valide dans laquelle la séquence de démarrage de l'application est décrite
 - Avoir des données à disposition (5 séries cohérentes de 500 valeurs chacune)
+
+### Mercredi
+
+On va faire le checkpoint #2, qui porte sur les fonctions d'ordre supérieur et les première méthode d'extension LinQ
