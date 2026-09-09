@@ -8,6 +8,7 @@ namespace DataSerie
 {
     public class DataSeries<T>
     {
+
         private readonly IEnumerable<DataPoint<T>> _data;
 
         private DataSeries(IEnumerable<DataPoint<T>> data) => _data = data;
@@ -26,6 +27,7 @@ namespace DataSerie
                 return new DataPoint<T>(DateTime.Parse(cols[0]), parser(cols));
             }));
         }
+        public DataSeries<T> FilterByDate(Func<DateTime, bool> predicate) => new DataSeries<T>(_data.Where(dp => predicate(dp.Timestamp)));
     }
 
 }

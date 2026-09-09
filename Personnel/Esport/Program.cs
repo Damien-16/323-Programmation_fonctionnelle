@@ -58,12 +58,22 @@ LolMatch ParseLol(string[] cols) => new LolMatch(
     bool.Parse(cols[9])   // won
 );
 
-Console.WriteLine(valorant.Count);
+Console.WriteLine($"Valorant : {valorant.Count} matchs");
+Console.WriteLine($"CS2      : {cs2.Count} matchs");
+Console.WriteLine($"LoL      : {lol.Count} matchs");
+
+var q1 = valorant.FilterByDate(d => d.Month <= 3);
+Console.WriteLine($"Matchs jan–mars : {q1.Count}");
 
 
-Console.WriteLine(cs2.Count);
+var raphaelGenerated = MatchGenerator.GenerateCs2("Raphaël", 20);
+Console.WriteLine(raphaelGenerated.Count); // 20
 
+//Func<Cs2Match, bool> isValid = m =>
+//    m.Kills + m.Assists <= 50 &&
+//    m.Deaths >= 1;
 
-Console.WriteLine(lol.Count);
+//var raphaelValid = raphaelGenerated.Filter(isValid);
+//Console.WriteLine($"Avant : {raphaelGenerated.Count}, après : {raphaelValid.Count}");
 
 Console.ReadKey();
