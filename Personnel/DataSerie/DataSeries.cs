@@ -16,5 +16,16 @@ namespace DataSerie
 
         public int Count => _data.Count();
         public IEnumerable<DataPoint<T>> Values => _data;
+
+        public static DataSeries<T> FromCsv(string path, Func<string[], T> parser)
+        {
+            var lines = File.ReadAllLines(path).Skip(1);
+            return new DataSeries<T>(lines.Select(line =>
+            {
+                var cols = line.Split(',');
+                return new DataPoint<T>(DateTime.Parse(cols[0]), parser(cols));
+            }));
+        }
     }
+
 }

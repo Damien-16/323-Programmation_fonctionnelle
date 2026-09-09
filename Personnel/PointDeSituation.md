@@ -1,0 +1,1 @@
+En cours j'étais a l'expercice 2, a l'étape 1. Et chez moi, hier, j'ai un peu avancer sur l'exercice 2 mais je n'en ai pas fais de commit
