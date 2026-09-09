@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Intrinsics.Arm;
+using System.Linq;
 using DataSerie;
 using Esport;
 
@@ -58,6 +60,16 @@ LolMatch ParseLol(string[] cols) => new LolMatch(
     bool.Parse(cols[9])   // won
 );
 
+void ExportCs2(DataSeries<Cs2Match> matches, string path)
+{
+    var header = "date,player,map,start_side,kills,deaths,assists,mvps,won";
+    var lines = matches.Values.Select(dp =>
+        $"{dp.Timestamp:yyyy-MM-dd},{dp.Value.Player},{dp.Value.Map},{dp.Value.StartSide}," +
+        $"{dp.Value.Kills},{dp.Value.Deaths},{dp.Value.Assists},{dp.Value.Mvps},{dp.Value.Won.ToString().ToLower()}"
+        );
+    File.WriteAllLines(path, lines.Prepend(header));
+}
+
 Console.WriteLine($"Valorant : {valorant.Count} matchs");
 Console.WriteLine($"CS2      : {cs2.Count} matchs");
 Console.WriteLine($"LoL      : {lol.Count} matchs");
@@ -75,5 +87,7 @@ Console.WriteLine(raphaelGenerated.Count); // 20
 
 //var raphaelValid = raphaelGenerated.Filter(isValid);
 //Console.WriteLine($"Avant : {raphaelGenerated.Count}, après : {raphaelValid.Count}");
+
+ExportCs2(raphaelGenerated, "raphael_generated.csv");
 
 Console.ReadKey();
