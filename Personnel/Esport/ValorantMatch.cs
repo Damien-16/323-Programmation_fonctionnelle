@@ -18,9 +18,9 @@ namespace Esport
         public int Headshots { get; }
         public int RoundsWon { get; }
         public bool Won { get; }
+        public DateTime Timestamp { get; }
 
-
-        public ValorantMatch(string player, string agent, int kills, int deaths, int assists, int headshots, int roundsWon, bool won)
+        public ValorantMatch(string player, string agent, int kills, int deaths, int assists, int headshots, int roundsWon, bool won, DateTime timestamp)
         {
             Player = player;
             Agent = agent;
@@ -30,6 +30,7 @@ namespace Esport
             Headshots = headshots;
             RoundsWon = roundsWon;
             Won = won;
+            Timestamp = timestamp;
         }
     }
 }

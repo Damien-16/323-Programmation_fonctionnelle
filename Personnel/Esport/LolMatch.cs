@@ -18,9 +18,9 @@ namespace Esport
         public int Cs { get; }
         public int VisionScore { get; }
         public bool Won { get; }
+        public DateTime Timestamp { get; }
 
-
-        public LolMatch(string player, string champion, int kills, int deaths, int assists, int cs, int visionScore, bool won)
+        public LolMatch(string player, string champion, int kills, int deaths, int assists, int cs, int visionScore, bool won, DateTime timestamp)
         {
             Player = player;
             Champion = champion;
@@ -30,7 +30,7 @@ namespace Esport
             Cs = cs;
             VisionScore = visionScore;
             Won = won;
+            Timestamp = timestamp;
         }
-
     }
 }

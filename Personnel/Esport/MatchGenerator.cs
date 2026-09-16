@@ -18,9 +18,8 @@ namespace Esport
             var start = new DateTime(2023, 9, 1);
 
             return DataSeries<Cs2Match>.From(
-                Enumerable.Range(1, count).Select(i => new DataPoint<Cs2Match>(
-                    start.AddDays(i),
-                    new Cs2Match(player, maps[rng.Next(maps.Length)], sides[rng.Next(2)], rng.Next(10, 28), rng.Next(6, 18), rng.Next(0, 8), rng.Next(0, 5), rng.Next(2) == 0)
+                Enumerable.Range(1, count).Select(i =>
+                    new Cs2Match(player, maps[rng.Next(maps.Length)], sides[rng.Next(2)], rng.Next(10, 28), rng.Next(6, 18), rng.Next(0, 8), rng.Next(0, 5), rng.Next(2) == 0,start.AddDays(i)
                     )
                 )
             );
