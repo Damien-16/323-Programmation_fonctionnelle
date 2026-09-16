@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Esport": {
+      "commandName": "Project",
+      "commandLineArgs": "--generate all"
+    }
+  }
+}

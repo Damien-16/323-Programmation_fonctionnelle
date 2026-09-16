@@ -44,6 +44,26 @@ LolMatch ParseLol(string[] cols) => new LolMatch(
     DateTime.Parse(cols[0])
 );
 
+Func<Cs2Match, bool> isValid = m =>
+    m.Kills + m.Assists <= 50 &&
+    m.Deaths >= 1;
+
+if (args.Contains("--generate"))
+{
+    var target = args[Array.IndexOf(args, "--generate") + 1];
+    var players = target == "all"
+        ? new[] { "Raphaël", "Kiara", "Dylan", "Noé" }
+        : new[] { target };
+
+    foreach(var player in players)
+    {
+        var series = MatchGenerator.GenerateCs2(player, 20);
+        ExportCs2(series.Filter(isValid), $"{player.ToLower()}_generated.csv");
+        Console.WriteLine($"{player} : données générées et exportées");
+    }
+    return;
+}
+
 void ExportCs2(DataSeries<Cs2Match> matches, string path)
 {
     var header = "date,player,map,start_side,kills,deaths,assists,mvps,won";
