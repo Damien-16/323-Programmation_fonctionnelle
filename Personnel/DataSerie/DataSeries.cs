@@ -22,6 +22,9 @@ namespace DataSerie
         {
             return DataSeries<T>.From(_data.Where(predicate));
         }
+        public DataSeries<T> Outliers(Func<T, bool> predicate)
+            => DataSeries<T>.From(_data.Where(predicate));
+
         public static DataSeries<T> FromCsv(string path, Func<string[], T> parser)
         {
             var lines = File.ReadAllLines(path).Skip(1);

@@ -44,6 +44,10 @@ LolMatch ParseLol(string[] cols) => new LolMatch(
     DateTime.Parse(cols[0])
 );
 
+var baaad = valorant.Outliers(m => m.Kills < 0);
+Console.WriteLine($"Total matchs : {valorant.Count}"); 
+Console.WriteLine($"Anomalies trouvées : {baaad.Count}"); 
+
 Func<Cs2Match, bool> isValid = m =>
     m.Kills + m.Assists <= 50 &&
     m.Deaths >= 1;
