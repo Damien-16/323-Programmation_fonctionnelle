@@ -45,8 +45,27 @@ LolMatch ParseLol(string[] cols) => new LolMatch(
 );
 
 var baaad = valorant.Outliers(m => m.Kills < 0);
-Console.WriteLine($"Total matchs : {valorant.Count}"); 
-Console.WriteLine($"Anomalies trouvées : {baaad.Count}"); 
+Console.WriteLine($"Total matchs : {valorant.Count}");
+Console.WriteLine($"Anomalies trouvées : {baaad.Count}");
+
+var cleanValorant = valorant.Sanitize(m =>
+    m.Kills < 0 || m.Kills > 50 ||
+    m.Deaths < 0 || m.Deaths > 30 ||
+    m.Assists < 0
+);
+var cleanCs2 = cs2.Sanitize(m =>
+    m.Kills + m.Assists > 50 ||
+    m.Deaths < 0
+);
+var cleanLol = lol.Sanitize(m =>
+    m.Kills > 10 ||
+    m.Deaths < 1 ||
+    m.Assists < 0 ||
+    m.Cs < 0
+);
+Console.WriteLine($"Valorant original : {valorant.Count}"); // 25
+var clean = valorant.Sanitize(m => m.Kills < 0);
+Console.WriteLine($"Valorant clean    : {clean.Count}");    // 25
 
 Func<Cs2Match, bool> isValid = m =>
     m.Kills + m.Assists <= 50 &&
@@ -59,7 +78,7 @@ if (args.Contains("--generate"))
         ? new[] { "Raphaël", "Kiara", "Dylan", "Noé" }
         : new[] { target };
 
-    foreach(var player in players)
+    foreach (var player in players)
     {
         var series = MatchGenerator.GenerateCs2(player, 20);
         ExportCs2(series.Filter(isValid), $"{player.ToLower()}_generated.csv");

@@ -25,6 +25,9 @@ namespace DataSerie
         public DataSeries<T> Outliers(Func<T, bool> predicate)
             => DataSeries<T>.From(_data.Where(predicate));
 
+        public DataSeries<T> Sanitize(Func<T, bool> isOutlier)
+            => Filter(item => !isOutlier(item));
+
         public static DataSeries<T> FromCsv(string path, Func<string[], T> parser)
         {
             var lines = File.ReadAllLines(path).Skip(1);
