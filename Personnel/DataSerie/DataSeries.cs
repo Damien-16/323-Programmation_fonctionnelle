@@ -37,6 +37,28 @@ namespace DataSerie
                 return parser(cols);
             }));
         }
+        //public double Min(Func<T, double> selector)
+        //{
+        //    if (!_data.Any()) return 0;
+        //    return _data.Select(selector).Min();
+        //}
+        //public double Max(Func<T, double> selector)
+        //{
+        //    if (!_data.Any()) return 0;
+        //    return _data.Select(selector).Max();
+        //}
+        //public double Average(Func<T, double> selector)
+        //{
+        //    if (!_data.Any()) return 0;
+        //    return _data.Select(selector).Average();
+        //}
+        //public double MME(Func<T, double> value)
+        //{
+        //    if (!_data.Any()) return 0.0;
+            
+        //    IEnumerable<double> values = _data.Select(value);
+        //    return values.Aggregate((mme, current) => (mme + current) / 2.0);
+        //}
     }
 
 }
