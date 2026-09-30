@@ -322,7 +322,8 @@ Remise en route après deux semaines d'inactivité sur le projet:
 #### Bilan
 
 - J'ai pu passer vers toutes les personnes que je n'ai pas vues la dernière fois
-- La consigne concernant le jdt a bien passé: tous (sauf un) l'ont mis à jour
+- J'ai eu des réponses diverses sur Avalonia. Rappel: le contenu de votre repo doit me permettre d'exécuter votre app. Si je ne connais pas la techno, votre rapport doit me guider!
+- La consigne concernant le jdt a bien passé: tous (sauf un -> joker brûlé) l'ont mis à jour
 
 ### Mercredi 30
 
