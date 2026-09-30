@@ -284,7 +284,7 @@ Pour commencer, on regarde la [théorie de l'agrégation](./supports/source/04-R
 
 Et ensuite, on met tout cela en pratique avec [l'exercice 5](./exos/fil-rouge/esport/05-classement-fold/) du fil rouge.
 
-## Bilan
+#### Bilan
 
 Un mot : Inquiétude
 
@@ -318,3 +318,16 @@ Remise en route après deux semaines d'inactivité sur le projet:
 - Compléter la partie bilan du rapport si votre planification initiale prévoyait du travail lundi passé et qu'il n'a pas été fait...
 - Je me renseigne sur Avalonia
 - Chacun avance et je tourne parmi vous
+
+#### Bilan
+
+- J'ai pu passer vers toutes les personnes que je n'ai pas vues la dernière fois
+- La consigne concernant le jdt a bien passé: tous (sauf un) l'ont mis à jour
+
+### Mercredi 30
+
+On fait le checkpoint #5 qui porte principalement sur la réduction.
+
+On fait l'évaluation formative (correction en DoJo après la pause).
+
+Chacun continue les étapes de ESportApp
